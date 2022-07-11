@@ -1,28 +1,19 @@
 
 public class StatsService {
-    public int getTotalOfAllSales(int[] sales) {
-        int totalOfAllSale = 0;
-        for (int i = 0; i < sales.length; i++) {
+    public long getTotalOfAllSales(long[] sales) {
+        long totalOfAllSale = 0;
+        for (long sale : sales) {
 
-            totalOfAllSale = totalOfAllSale + sales[i];
-            if (sales[i] > totalOfAllSale)
-                totalOfAllSale = i;
+            totalOfAllSale += sale;
+
         }
         return totalOfAllSale;
     }
 
 
-    public int getAverageSalesAmountMonth(int[] sales) {
-        int sum = 0;
-        int averageSalesAmountMonth = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-            averageSalesAmountMonth = sum / sales.length;
-            if (sales[i] < averageSalesAmountMonth)
-                averageSalesAmountMonth = i;
+    public long getAverageSalesAmountMonth(long[] sales) {
 
-        }
-        return averageSalesAmountMonth;
+        return getTotalOfAllSales(sales) / 12;
     }
 
 
@@ -55,41 +46,28 @@ public class StatsService {
         return minMonth + 1;
     }
 
-    public int getMinAverageMonth(int[] sales) {
-        int sum = 0;
-        int averageSalesAmountMonth = 0;
+    public int getMinAverageMonth(long[] sales) {
+        long average = getAverageSalesAmountMonth(sales);
         int minAverageMonth = 0;
-
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
-        averageSalesAmountMonth = sum / sales.length;
-        for (int i = 0; i < sales.length; i++) {
-
-            if (sales[i] < averageSalesAmountMonth){
-
+        for (long sale : sales) {
+            if (sale < average) {
                 minAverageMonth++;
+
             }
         }
         return minAverageMonth;
     }
 
-    public int getMaxAverageMonth(int[] sales) {
-        int sum = 0;
-        int averageSalesAmountMonth = 0;
+    public int getMaxAverageMonth(long[] sales) {
+        long average = getAverageSalesAmountMonth(sales);
         int maxAverageMonth = 0;
-
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
-        averageSalesAmountMonth = sum / sales.length;
-        for (int i = 0; i < sales.length; i++) {
-
-            if (sales[i] > averageSalesAmountMonth){
+        for (long sale : sales) {
+            if (sale > average) {
 
                 maxAverageMonth++;
             }
         }
         return maxAverageMonth;
     }
+
 }

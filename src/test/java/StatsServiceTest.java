@@ -6,9 +6,9 @@ public class StatsServiceTest {
     public void shouldFindTotalBetweenEnds() {
 
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expectedTotal = 180;
-        int actualTotal = service.getTotalOfAllSales(sales);
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expectedTotal = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18;
+        long actualTotal = service.getTotalOfAllSales(sales);
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
@@ -17,9 +17,9 @@ public class StatsServiceTest {
     public void shouldFindAverageAmountBetweenEnds() {
 
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedAverage = 15;
-        int actualAverage = service.getAverageSalesAmountMonth(sales);
+        long actualAverage = service.getAverageSalesAmountMonth(sales);
         Assertions.assertEquals(expectedAverage, actualAverage);
     }
 
@@ -48,7 +48,7 @@ public class StatsServiceTest {
     public void shouldFindMinAverageBetweenEnds() {
 
         StatsService service = new StatsService();
-        int[] sales ={8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales ={8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedMinAverage = 5;
         int actualMinAverage = service.getMinAverageMonth(sales);
         Assertions.assertEquals(expectedMinAverage, actualMinAverage);
@@ -59,7 +59,7 @@ public class StatsServiceTest {
     public void shouldFindMaxAverageBetweenEnds() {
 
         StatsService service = new StatsService();
-        int[] sales ={8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales ={8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expectedMaxAverage = 5;
         int actualMaxAverage = service.getMaxAverageMonth(sales);
         Assertions.assertEquals(expectedMaxAverage, actualMaxAverage);

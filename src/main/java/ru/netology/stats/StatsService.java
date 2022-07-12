@@ -1,4 +1,6 @@
 
+
+package ru.netology.stats;
 public class StatsService {
     public long getTotalOfAllSales(long[] sales) {
         long totalOfAllSale = 0;
